@@ -8,7 +8,7 @@ import HistoriaClinica.HistoriaClinica;
 import Usuario.Usuario;
 import java.util.ArrayList;
 /**
- *f
+ *
  * @author Fernando Risco 
  */
 public class Paciente extends Usuario {
