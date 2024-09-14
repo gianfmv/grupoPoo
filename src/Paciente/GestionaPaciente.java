@@ -17,7 +17,7 @@ import utp.edu.pe.poo.pantalla.LecturaInformacion;
 
 public class GestionaPaciente {
 
-    // Método para registrar un nuevo paciente
+    // Método estáticos para registrar un nuevo paciente
    private static LecturaInformacion lecturaInformacion = new LecturaInformacion();
 
     public static void registrarNuevoPaciente(Scanner sc, ArrayList<Paciente> listaPacientes) {

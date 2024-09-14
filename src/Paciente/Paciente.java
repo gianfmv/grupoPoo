@@ -9,14 +9,14 @@ import Usuario.Usuario;
 import java.util.ArrayList;
 /**
  *
- * @author Gian Marrufo
+ * @author Fernando Risco
  */
 public class Paciente extends Usuario {
   // Composición: Un paciente "tiene" una lista de historias clínicas.
     // Si el paciente deja de existir, sus historias clínicas también lo hacen.
    private String direccion;
     private String telefono;
-    private ArrayList<HistoriaClinica> historiasClinicas; // Composición: Cada paciente tiene sus propias historias clínicas
+    private ArrayList<HistoriaClinica> historiasClinicas; // Composición
 
     public Paciente(String nombre, String apellido,String dni, String direccion, String telefono) {
         super(nombre,apellido, dni);

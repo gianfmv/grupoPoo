@@ -15,7 +15,7 @@ Asociación: La historia clínica se asocia a un Medico, pero la existencia del 
  */
 public class HistoriaClinica {
     private Paciente paciente; // Composición: Historia clínica depende del paciente
-    private Medico medico; // Asociación: La historia clínica se asocia a un médico
+    private Medico medico; //  La relación entre Medico y HistoriaClinica es una relación de agregación. Un médico puede realizar múltiples consultas sin que las historias clínicas sean dependientes de la existencia del médico.
     private String diagnostico;
     private String tratamiento;
 
