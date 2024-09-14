@@ -8,8 +8,8 @@ import HistoriaClinica.HistoriaClinica;
 import Usuario.Usuario;
 import java.util.ArrayList;
 /**
- *
- * @author Fernando Risco
+ *f
+ * @author Fernando Risco 
  */
 public class Paciente extends Usuario {
   // Composición: Un paciente "tiene" una lista de historias clínicas.
