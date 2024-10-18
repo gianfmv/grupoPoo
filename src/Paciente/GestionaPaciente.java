@@ -24,7 +24,6 @@ import java.util.List;
  */
 public class GestionaPaciente {
 
-<<<<<<< HEAD
     private static final String FILE_PATH = "D:/usuarios.txt"; // Ruta del archivo de persistencia que almacena los usuarios
     private static LecturaInformacion lecturaInformacion = new LecturaInformacion();
     
@@ -35,10 +34,6 @@ public class GestionaPaciente {
     */
     public static ArrayList<Paciente> cargarPacientesDesdeArchivo(String rutaArchivo) {
      ArrayList<Paciente> listaPacientes = new ArrayList<>();// array para guardar los pacientes
-=======
-    // Método estáticos para registrar un nuevo paciente
-   private static LecturaInformacion lecturaInformacion = new LecturaInformacion();
->>>>>>> 78652994c08a28dc48bfe316b9d6fe89f12a600a
 
             try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
                 String linea;

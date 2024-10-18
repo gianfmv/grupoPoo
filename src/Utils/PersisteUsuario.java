@@ -29,15 +29,14 @@ public class PersisteUsuario {
     private static BufferedReader br;
 
     // Método para agregar un usuario (ya sea Médico o Paciente)
-public static void agrega(Usuario usuario, String path, String tipo) throws IOException {
-    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))) { // `true` activa el modo de "append"
-        bufferedWriter.write(usuario.toString() + "," + tipo);
-        bufferedWriter.newLine(); // Añade una nueva línea después de cada usuario
-    } catch (IOException e) {
-        System.out.print("Error al escribir en el archivo " + e.getMessage());
+    public static void agrega(Usuario usuario, String path, String tipo) throws IOException {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))) { // `true` activa el modo de "append"
+            bufferedWriter.write(usuario.toString() + "," + tipo);
+            bufferedWriter.newLine(); // Añade una nueva línea después de cada usuario
+        } catch (IOException e) {
+            System.out.print("Error al escribir en el archivo " + e.getMessage());
+        }
     }
-}
-
 
     // Método para leer usuarios (Médico o Paciente)
     public static Map<String, Usuario> leeUsuario(String path) throws IOException {
