@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author MATEO
  */
+//La clase Medico hereda de Usuario y representa a un médico en el sistema.
 public class Medico extends Usuario{
 
     private String especialidad;      
@@ -41,7 +42,7 @@ public class Medico extends Usuario{
     public String getEspecialidad() {
         return especialidad;
     }
-    // Método para el diagnóstico
+    // Método para el diagnóstico genera un diagnóstico basado en síntomas
     public String diagnosticar(String sintomas) {
         return "Diagnóstico basado en: " + sintomas;
     }

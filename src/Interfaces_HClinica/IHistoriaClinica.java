@@ -9,6 +9,8 @@ package Interfaces_HClinica;
  * @author Gian Marrufo
  */
 public interface IHistoriaClinica {
+    //Registra un diagnóstico y un tratamiento en la historia clínica.
     public void registrarConsulta(String diagnostico, String tratamiento);
+    //Devuelve información sobre la consulta registrada.
     public String obtenerInformacionConsulta();
 }

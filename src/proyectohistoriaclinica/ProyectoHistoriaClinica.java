@@ -11,7 +11,7 @@ import Paciente.Paciente;
 import Paciente.GestionaPaciente;
 import Medico.Medico;
 //import HistoriaClinica.GestionaConsulta;
-import Interfaces_HClinica.GestionaConsultaImpl;
+import Interfaces_HClinica.GestionaConsulta;
 import Usuario.Usuario;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -37,7 +37,9 @@ public class ProyectoHistoriaClinica {
     public static void main(String[] args) throws IOException {
     // Cargamos los usuarios desde el archivo especificado en PATH_ARCHIVO
     cargarUsuariosDesdeArchivo(PATH_ARCHIVO);                
-       
+    // Instanciamos la clase GestionaPaciente
+    GestionaPaciente ges = new GestionaPaciente(listaPacientes);
+    
     Scanner sc = new Scanner(System.in);
     boolean salir = false; // variable para controlar la salida del programa
     Usuario usuarioLogueado = null; // Variable para almacenar el usuario que inicia sesión, es de la clase abstracta
@@ -56,7 +58,7 @@ public class ProyectoHistoriaClinica {
             usuarioLogueado = Medico.login(listaMedicos, dni, password);
             if (usuarioLogueado == null) {
                  // Si no se encontró un médicos en la lista, intentamos iniciar sesión como paciente
-                usuarioLogueado = GestionaPaciente.login(listaPacientes, dni, password);
+                usuarioLogueado = ges.login(dni, password);
             }
 
              // Verificamos si el usuario no fue encontrado ya sea médico o paciente mostramos el mensaje de aviso para que intenten denuevo
@@ -84,7 +86,10 @@ public class ProyectoHistoriaClinica {
     //Método estático para mostrar el menú del medíco
     private static boolean mostrarMenuMedico(Scanner sc, Medico medicoLogueado) throws IOException {    
         boolean salir = false;// Variable para controlar la salida del menú médico
-        GestionaConsultaImpl ges = new GestionaConsultaImpl();
+        GestionaPaciente ges = new GestionaPaciente(listaPacientes); // Instancia de GestionaPaciente
+        GestionaConsulta gestionaConsulta = new GestionaConsulta(); // Pasamos gestionaPaciente al constructor
+    
+        //GestionaConsultaImpl ges = new GestionaConsultaImpl();
         // Bucle para mostrar el menú hasta que el médico decida salir
         while (!salir) {
             String[] opciones = {
@@ -95,25 +100,26 @@ public class ProyectoHistoriaClinica {
                 "5. Cerrar sesión",
                 "6. Salir del programa"
             };
-            int opcion = pantalla.Menu("\n===== Menú Médico =====", opciones);
+            int opcion = pantalla.Menu("\n====== Menú Médico ======", opciones);
 
             switch (opcion) {
                 case 1:
                     // Registramos nueva consulta, accedemos al archivo de pacientes
-                    ges.registrarConsulta(sc, medicoLogueado, PATH_ARCHIVO);
+                    gestionaConsulta.registrarConsulta(sc, medicoLogueado,PATH_ARCHIVO);
                    // GestionaConsulta.registrarConsulta(sc, medicoLogueado, PATH_ARCHIVO);
                     break;
                 case 2:
                     // Registramos nuevo paciente, 
-                    GestionaPaciente.registrarNuevoPaciente(sc, listaPacientes);
+                    ges.registrarNuevoPaciente(sc, listaPacientes);
+                   // cargarUsuariosDesdeArchivo(PATH_ARCHIVO);     
                     break;
                 case 3:
                      // Ver lista de pacientes
-                    GestionaPaciente.verListaPacientes(PATH_ARCHIVO);
+                    ges.verListaPacientes(PATH_ARCHIVO);
                     break;
                 case 4:
                      // Ver historial de consultas
-                    ges.verHistorialConsultas(sc, PATH_ARCHIVO);
+                    gestionaConsulta.verHistorialConsultas(sc);
                     break;
                 case 5:
                     System.out.println("Sesión cerrada.");
@@ -132,6 +138,7 @@ public class ProyectoHistoriaClinica {
     //Método estático para mostrar el menu del paciente
     private static boolean mostrarMenuPaciente(Scanner sc, Paciente pacienteLogueado) {
         boolean salir = false;// variable para controlar la salida del menú del paciente
+        GestionaPaciente ges = new GestionaPaciente(listaPacientes); // Instancia de GestionaPaciente
         // Bucle para mostrar el menú hasta que el paciente decida salir
         while (!salir) {
             String[] opciones = {
@@ -143,7 +150,7 @@ public class ProyectoHistoriaClinica {
 
             switch (opcion) {
                 case 1:
-                    GestionaPaciente.verHistorialConsultas(pacienteLogueado);
+                    ges.verHistorialConsultas(pacienteLogueado);
                     break;
                 case 2:
                     System.out.println("Sesión cerrada.");

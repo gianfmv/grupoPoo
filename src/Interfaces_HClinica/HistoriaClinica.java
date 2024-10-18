@@ -15,25 +15,28 @@ import java.time.format.DateTimeFormatter;
 import Medico.Medico;
 import Paciente.Paciente;
 
-public class HistoriaClinicaImpl implements IHistoriaClinica{
+//Clase que implementa la interfaz IHistoriaClinica.
+public class HistoriaClinica implements IHistoriaClinica{
     private Paciente paciente; // Composición: Historia clínica depende del paciente
     private Medico medico; //  La relación entre Medico y HistoriaClinica es una relación de agregación. Un médico puede realizar múltiples consultas sin que las historias clínicas sean dependientes de la existencia del médico.
     private LocalDate fechaConsulta;  
     private String diagnostico;
     private String tratamiento;
 
-    public HistoriaClinicaImpl(Paciente paciente, Medico medico, LocalDate fechaConsulta) {
+    public HistoriaClinica(Paciente paciente, Medico medico, LocalDate fechaConsulta) {
         this.paciente = paciente;
         this.medico = medico;
         this.fechaConsulta = fechaConsulta;
     }
 
+    //Registra el diagnóstico y tratamiento en la historia clínica.
     @Override
     public void registrarConsulta(String diagnostico, String tratamiento) {
         this.diagnostico = diagnostico;
         this.tratamiento = tratamiento;
     }
 
+    //Devuelve información detallada sobre la consulta
     @Override
     public String obtenerInformacionConsulta() {
         DateTimeFormatter formatear = DateTimeFormatter.ofPattern("dd/MM/yyyy");

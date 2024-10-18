@@ -20,30 +20,34 @@ import java.util.List;
 import java.util.Scanner;
 import utp.edu.pe.poo.pantalla.LecturaInformacion;
 
-public class GestionaConsultaImpl implements IGestionaConsulta{
-     private static LecturaInformacion lecturaInformacion = new LecturaInformacion();
-
+//Clase que implementa la interfaz IGestionaConsulta.
+public class GestionaConsulta implements IGestionaConsulta{
+     private static LecturaInformacion lecturaInformacion = new LecturaInformacion();     
+     private List<Paciente> pacientes;
+     private GestionaPaciente ges =new GestionaPaciente(pacientes);
+      
+     //Permite registrar una consulta médica para un paciente. Busca al paciente por DNI, solicita síntomas, y registra el diagnóstico y tratamiento.
     @Override
     public void registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes) throws IOException {
         System.out.print("DNI del paciente: ");
         String dni = sc.nextLine();
-
-        Paciente paciente = GestionaPaciente.buscarPacientePorDni(dni, pathArchivoPacientes);
+      //  GestionaPaciente ges =new GestionaPaciente(pacientes);
+        
+        Paciente paciente = ges.buscarPacientePorDni(dni);
 
         if (paciente == null) {
             System.out.println("Paciente no encontrado. Registra al paciente primero.");
         } else {
             System.out.println("Paciente: " + paciente.getNombre() + " " + paciente.getApellido());
 
-            System.out.println("Ingrese síntomas del paciente: ");
-            String sintomas = sc.nextLine();
+            String sintomas = lecturaInformacion.lecturaString("SINTOMAS", "Ingrese síntomas del paciente: ");
 
             LocalDate fechaConsulta = LocalDate.now();
             String diagnostico = medico.diagnosticar(sintomas);
             String tratamiento = lecturaInformacion.lecturaString("Recetar tratamiento", "Ingrese el tratamiento: ");
 
             // Creamos la historia clínica y registramos la consulta
-            IHistoriaClinica historiaClinica = new HistoriaClinicaImpl(paciente, medico, fechaConsulta);
+            IHistoriaClinica historiaClinica = new HistoriaClinica(paciente, medico, fechaConsulta);
             historiaClinica.registrarConsulta(diagnostico, tratamiento);
 
             paciente.agregarHistoriaClinica(historiaClinica);
@@ -54,12 +58,13 @@ public class GestionaConsultaImpl implements IGestionaConsulta{
         }
     }
 
+    //Permite ver el historial de consultas de un paciente buscándolo por DNI.
     @Override
-    public void verHistorialConsultas(Scanner sc, String pathArchivoPacientes) throws IOException {
+    public void verHistorialConsultas(Scanner sc) {
         System.out.print("DNI del paciente: ");
         String dni = sc.nextLine();
 
-        Paciente paciente = GestionaPaciente.buscarPacientePorDni(dni, pathArchivoPacientes);
+        Paciente paciente = ges.buscarPacientePorDni(dni);
 
         if (paciente == null) {
             System.out.println("Paciente no encontrado.");

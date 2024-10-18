@@ -13,7 +13,10 @@ import Medico.Medico;
 import java.io.IOException;
 import java.util.Scanner;
 
+//Esta interfaz gestiona las consultas médicas.
 public interface IGestionaConsulta {
+    //Permite registrar una consulta para un paciente.
     void registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes) throws IOException;
-    void verHistorialConsultas(Scanner sc, String pathArchivoPacientes) throws IOException;    
+    //Muestra el historial de consultas de un paciente.
+    void verHistorialConsultas(Scanner sc);    
 }

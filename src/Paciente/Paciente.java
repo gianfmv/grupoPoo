@@ -13,6 +13,8 @@ import java.util.List;
  *
  * @author Fernando Risco 
  */
+//La clase Paciente también hereda de Usuario y representa a un paciente en el sistema, además implementa la interface IHistoriaClinicaManager para gestionar las historias clínicas.
+
 public class Paciente extends Usuario implements IHistoriaClinicaManager {
     // Composición: Un paciente "tiene" una lista de historias clínicas.
     // Si el paciente deja de existir, sus historias clínicas también lo hacen.
@@ -47,6 +49,7 @@ public class Paciente extends Usuario implements IHistoriaClinicaManager {
         return historiasClinicas;
     }
     */
+    //Agrega una historia clínica a la lista del paciente.
     @Override
     public void agregarHistoriaClinica(IHistoriaClinica historia) {
         this.historiasClinicas.add(historia); // Agregar una historia clínica

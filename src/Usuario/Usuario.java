@@ -10,8 +10,8 @@ import Encriptar.IEncriptador;
 
 /**
  *
- * Generalización (Herencia): Usuario es una clase abstracta general que tiene campos comunes como (nombre, apellido dni,password) para el Paciente y el Médico.
- * 
+ * Generalización (Herencia): Usuario es una clase abstracta general de la que heredan Medico y Paciente tiene campos comunes como (nombre, apellido dni,password) 
+ * Contiene atributos comunes y un método abstracto para verificar la contraseña.
  * @author Rivas Cristian
  */
 public abstract class Usuario {
