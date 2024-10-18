@@ -13,10 +13,22 @@ import java.time.format.DateTimeFormatter;
 import Medico.Medico;
 import Paciente.Paciente;
 
+<<<<<<< HEAD:src/Interfaces_HClinica/HistoriaClinicaImpl.java
 public class HistoriaClinicaImpl implements IHistoriaClinica{
     private Paciente paciente;
     private Medico medico;
     private LocalDate fechaConsulta;
+=======
+/**
+ *Composición: HistoriaClinica depende de Paciente. Si el paciente es eliminado, su historia clínica también se elimina.
+Asociación: La historia clínica se asocia a un Medico, pero la existencia del médico no depende de la historia clínica.
+* 
+ * @author Gian Marrufo
+ */
+public class HistoriaClinica {
+    private Paciente paciente; // Composición: Historia clínica depende del paciente
+    private Medico medico; //  La relación entre Medico y HistoriaClinica es una relación de agregación. Un médico puede realizar múltiples consultas sin que las historias clínicas sean dependientes de la existencia del médico.
+>>>>>>> 78652994c08a28dc48bfe316b9d6fe89f12a600a:src/HistoriaClinica/HistoriaClinica.java
     private String diagnostico;
     private String tratamiento;
 

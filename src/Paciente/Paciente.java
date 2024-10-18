@@ -11,17 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author Gian Marrufo
+ * @author Fernando Risco 
  */
 public class Paciente extends Usuario implements IHistoriaClinicaManager {
     // Composición: Un paciente "tiene" una lista de historias clínicas.
     // Si el paciente deja de existir, sus historias clínicas también lo hacen.
     private String direccion;
     private String telefono;
+<<<<<<< HEAD
     private List<IHistoriaClinica> historiasClinicas; // Composición: Cada paciente tiene sus propias historias clínicas
     
     public Paciente(String nombre, String apellido,String dni, String password, String direccion, String telefono) {
         super(nombre,apellido, dni, password);
+=======
+    private ArrayList<HistoriaClinica> historiasClinicas; // Composición
+
+    public Paciente(String nombre, String apellido,String dni, String direccion, String telefono) {
+        super(nombre,apellido, dni);
+>>>>>>> 78652994c08a28dc48bfe316b9d6fe89f12a600a
         this.direccion = direccion;
         this.telefono = telefono;
         this.historiasClinicas = new ArrayList<>(); // Inicializar la lista
