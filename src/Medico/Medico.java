@@ -4,6 +4,7 @@
  */
 package Medico;
 
+//import Encriptar.EncriptadorCesar;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -13,13 +14,30 @@ import java.util.ArrayList;
  */
 public class Medico extends Usuario{
 
-   private String especialidad;
+    private String especialidad;      
 
-    public Medico(String nombre, String apellido, String dni, String especialidad) {
-        super(nombre,apellido, dni);
+    public Medico(String nombre, String apellido, String dni, String password, String especialidad) {
+        super(nombre,apellido, dni, password);
         this.especialidad = especialidad;
     }
 
+    //Método estático para iniciar sesión del médico
+    public static Medico login(ArrayList<Medico> listaMedicos, String dni, String password) {   
+       for (Medico medico : listaMedicos) {            
+             if (medico.verificarPassword(dni, password)) {
+                    return medico;
+                }
+            }
+        return null;
+    }
+        
+    // Sobreescribimos los metódos abstractos de la clase usuario
+    @Override
+    public boolean verificarPassword(String dni, String inputPassword) {
+        // Utiliza el método encriptarPassword de la clase base abstracta Usuario para verificar la contraseña
+        return this.getDni().equals(dni) && this.getPassword().equals(this.encriptarPassword(inputPassword));
+    }
+    
     public String getEspecialidad() {
         return especialidad;
     }
@@ -30,15 +48,5 @@ public class Medico extends Usuario{
     // Método para recetar tratamiento
     public String recetarTratamiento(String tratamiento) {
         return tratamiento;  // Devuelve el tratamiento que fue ingresado
-    }
-
-    // Método estático para verificar las credenciales del médico sólo con su dni
-    public static Medico login(ArrayList<Medico> listaMedicos, String dni) {
-        for (Medico medico : listaMedicos) {
-            if (medico.getDni().equals(dni)) {
-                return medico;
-            }
-        }
-        return null;
-    }    
+    } 
 }

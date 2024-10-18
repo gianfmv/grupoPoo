@@ -4,27 +4,36 @@
  */
 package Paciente;
 
-import HistoriaClinica.HistoriaClinica;
+import Interfaces_HClinica.IHistoriaClinicaManager;
+import Interfaces_HClinica.IHistoriaClinica;
 import Usuario.Usuario;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Gian Marrufo
  */
-public class Paciente extends Usuario {
-  // Composición: Un paciente "tiene" una lista de historias clínicas.
+public class Paciente extends Usuario implements IHistoriaClinicaManager {
+    // Composición: Un paciente "tiene" una lista de historias clínicas.
     // Si el paciente deja de existir, sus historias clínicas también lo hacen.
-   private String direccion;
+    private String direccion;
     private String telefono;
-    private ArrayList<HistoriaClinica> historiasClinicas; // Composición: Cada paciente tiene sus propias historias clínicas
-
-    public Paciente(String nombre, String apellido,String dni, String direccion, String telefono) {
-        super(nombre,apellido, dni);
+    private List<IHistoriaClinica> historiasClinicas; // Composición: Cada paciente tiene sus propias historias clínicas
+    
+    public Paciente(String nombre, String apellido,String dni, String password, String direccion, String telefono) {
+        super(nombre,apellido, dni, password);
         this.direccion = direccion;
         this.telefono = telefono;
         this.historiasClinicas = new ArrayList<>(); // Inicializar la lista
     }
 
+    // Sobreescribimos los metódos abstractos de la clase usuario
+    @Override
+    public boolean verificarPassword(String dni, String inputPassword) {
+        // Utiliza el método encriptarPassword de la clase base Usuario
+        return this.getDni().equals(dni) && this.getPassword().equals(this.encriptarPassword(inputPassword));
+    }
+    
     public String getDireccion() {
         return direccion;
     }
@@ -33,39 +42,26 @@ public class Paciente extends Usuario {
         return telefono;
     }
 
-    public ArrayList<HistoriaClinica> getHistoriasClinicas() {
+   /* public ArrayList<IHistoriaClinica> getHistoriasClinicas() {
+        return historiasClinicas;
+    }
+    */
+    @Override
+    public void agregarHistoriaClinica(IHistoriaClinica historia) {
+        this.historiasClinicas.add(historia); // Agregar una historia clínica
+    }
+    
+    @Override
+    public String toString() {
+        return getNombre() + "," + getApellido() + "," + getDni() + "," + direccion + "," + telefono + "," + this.getPassword();
+    }
+
+    @Override
+    public List<IHistoriaClinica> obtenerHistoriasClinicas() {
         return historiasClinicas;
     }
 
-    public void agregarHistoriaClinica(HistoriaClinica historia) {
-        this.historiasClinicas.add(historia); // Agregar una historia clínica
-    }
-/*
-    // Método estático para buscar paciente por DNI
-    public static Paciente buscarPacientePorDni(String dni, ArrayList<Paciente> listaPacientes) {
-        for (Paciente p : listaPacientes) {
-            if (p.getDni().equals(dni)) {
-                return p;
-            }
-        }
-        return null;
-    }*/
-/*
-    public static void mostrarPacientes(ArrayList<Paciente> listaPacientes) {
-        for (Paciente p : listaPacientes) {
-            System.out.println("Nombre: " + p.getNombre() +", Apellido: "+ p.getApellido() + ", DNI: " + p.getDni());
-        }
-    }*/
-   /* 
-    // Método para ver el historial de consultas de un paciente
-    public static void verHistorialConsultas(Paciente paciente) {
-        ArrayList<HistoriaClinica> historial = paciente.getHistoriasClinicas();
-        if (historial.isEmpty()) {
-            System.out.println("No hay consultas registradas para este paciente.");
-        } else {
-            for (HistoriaClinica hc : historial) {
-                System.out.println(hc);
-            }
-        }
-    }*/
+
+
+
 }
