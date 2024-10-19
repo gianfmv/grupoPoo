@@ -1,0 +1,75 @@
+@startuml
+package "Proyecto Historia Clínica" {
+    interface IHistoriaClinica {
+        + registrarConsulta(String diagnostico, String tratamiento)
+        + obtenerInformacionConsulta(): String
+    }
+
+    interface IHistoriaClinicaManager {
+        + agregarHistoriaClinica(IHistoriaClinica historia)
+        + obtenerHistoriasClinicas(): List<IHistoriaClinica>
+    }
+
+    interface IGestionaConsulta {
+        + registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes) : void
+        + verHistorialConsultas(Scanner sc) : void
+    }
+
+    abstract class Usuario {
+        - nombre: String
+        - apellido: String
+        - dni: String
+        - password: String
+        - encriptador: IEncriptador
+        + verificarPassword(dni: String, inputPassword: String): boolean
+        + encriptarPassword(password: String): String
+    }
+
+
+    class Medico extends Usuario {
+        - especialidad: String
+        + diagnosticar(sintomas: String): String
+        + recetarTratamiento(tratamiento: String): String
+    }
+
+
+    class Paciente extends Usuario implements IHistoriaClinicaManager {
+        - direccion: String
+        - telefono: String
+        - historiasClinicas: List<IHistoriaClinica>
+        + agregarHistoriaClinica(IHistoriaClinica historia): void
+        + obtenerHistoriasClinicas(): List<IHistoriaClinica>
+    }
+
+    class GestionaPaciente {
+        - pacientes: List<Paciente>
+        + cargarPacientesDesdeArchivo(String rutaArchivo): List<Paciente>
+        + buscarPacientePorDni(String dni): Paciente
+    }
+
+
+class GestionaConsultaImpl implements IGestionaConsulta {
+    - pacientes: List<Paciente>
+    + registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes): void
+    + verHistorialConsultas(Scanner sc): void
+}
+
+class HistoriaClinicaImpl implements IHistoriaClinica {
+    - paciente: Paciente
+    - medico: Medico
+    - fechaConsulta: LocalDate
+    - diagnostico: String
+    - tratamiento: String
+    + registrarConsulta(String diagnostico, String tratamiento): void
+    + obtenerInformacionConsulta(): String
+}
+}
+
+Medico --> "agrega" IHistoriaClinica
+Paciente --> IHistoriaClinica : "composición"
+Paciente --> IHistoriaClinicaManager
+
+IGestionaConsulta <|-- GestionaConsultaImpl
+IHistoriaClinica <|-- HistoriaClinicaImpl
+
+@enduml

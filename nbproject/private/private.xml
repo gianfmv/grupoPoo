@@ -5,22 +5,18 @@
         <group>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Usuario/Usuario.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Encriptar/EncriptadorXOR.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/utp/edu/pe/poo/pantalla/Pantalla.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/utp/edu/pe/poo/pantalla/LecturaInformacion.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/HistoriaClinicaImpl.java</file>
+            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/HistoriaClinica.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Medico/Medico.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/proyectohistoriaclinica/ProyectoHistoriaClinica.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Encriptar/EncriptadorCesar.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/GestionaConsultaImpl.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/IGestionaConsulta.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Encriptar/EncriptadorBase64.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/utp/edu/pe/poo/pantalla/Titulo.java</file>
+            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/GestionaConsulta.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Utils/PersisteUsuario.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Paciente/GestionaPaciente.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Paciente/Paciente.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/IHistoriaClinica.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Interfaces_HClinica/IHistoriaClinicaManager.java</file>
-            <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/utp/edu/pe/poo/pantalla/Subrayar.java</file>
             <file>file:/D:/UTP/CICLO%20IV%202024%20-%20AGOSTO/Programación%20Orientada%20A%20Objetos/ProyectoHClinica/ProyectoHistoriaClinica/src/Encriptar/IEncriptador.java</file>
         </group>
     </open-files>

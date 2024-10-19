@@ -1,0 +1,8 @@
+Jack,Shepard,55555555,san isidro 144,999999999,MTIzNA==,Medico
+Gian,Marrufo,43039206,las palmeras 147,965623523,dHJpbml0eQ==,Paciente
+Maria,Torres,22222222,los sauces 123,996523620,cGFzc3dvcmQ=,Paciente
+Fiorella,Bonilla,77777777,duraznos 125,956325652,bmVzdGxl,Paciente
+Juan,Perez,88888888,el bosque 148,985623652,Y2xhdmU=,Paciente
+Pepe,Cuenca,44444444,españa 159,956236325,cGFzc3dvcmQ=,Paciente
+Nelly,Garrido,11111111,san carlos 1625,985623524,cGFzc3dvcmQ=,Paciente
+juan,perez,99999999,dgfgdf,656565,MTIzNA==,Paciente

@@ -11,6 +11,7 @@ import java.util.List;
  * @author Gian Marrufo
  */
 //Esta interfaz gestiona las historias clínicas.
+
 public interface IHistoriaClinicaManager {
     //Agrega una historia clínica a la lista.
     public void agregarHistoriaClinica(IHistoriaClinica historia);

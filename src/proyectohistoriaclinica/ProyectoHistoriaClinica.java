@@ -65,14 +65,14 @@ public class ProyectoHistoriaClinica {
             if (usuarioLogueado == null) {
                 System.out.println("DNI o contraseña incorrectos. Intente nuevamente.");
             } else if (usuarioLogueado instanceof Medico) {// Verificamos si el usuario pertenece a la clase médico con instanceof
-                // si es médico realizamos el casting a Medico
+                // si es médico realizamos el downcasting a Medico
                 Medico medicoLogueado = (Medico) usuarioLogueado;                 
                 System.out.println("\nMédico " + medicoLogueado.getNombre() + " " + medicoLogueado.getApellido() + " ha iniciado sesión.");
                 // Mostramos el menú para médicos y almacenamos en la variable salir
                 salir = mostrarMenuMedico(sc, medicoLogueado); 
                 usuarioLogueado = null; // Reiniciamos el usuario logueado a null, para pedir credenciales nuevamente si se cierra la sesión
             } else if (usuarioLogueado instanceof Paciente) { // Verificamos si el usuario pertenece a la clase paciente con instanceof
-                 // Realizamos un casting a paciente
+                 // Realizamos un downcasting a paciente
                 Paciente pacienteLogueado = (Paciente) usuarioLogueado;
                 System.out.println("\nPaciente " + pacienteLogueado.getNombre() + " " + pacienteLogueado.getApellido() + " ha iniciado sesión.");
                 // Mostrar el menú para pacientes y salir si se elige cerrar sesión
@@ -87,7 +87,7 @@ public class ProyectoHistoriaClinica {
     private static boolean mostrarMenuMedico(Scanner sc, Medico medicoLogueado) throws IOException {    
         boolean salir = false;// Variable para controlar la salida del menú médico
         GestionaPaciente ges = new GestionaPaciente(listaPacientes); // Instancia de GestionaPaciente
-        GestionaConsulta gestionaConsulta = new GestionaConsulta(); // Pasamos gestionaPaciente al constructor
+        GestionaConsulta gestionaConsulta = new GestionaConsulta(); 
     
         //GestionaConsultaImpl ges = new GestionaConsultaImpl();
         // Bucle para mostrar el menú hasta que el médico decida salir

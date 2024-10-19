@@ -16,7 +16,7 @@ import java.util.Scanner;
 //Esta interfaz gestiona las consultas médicas.
 public interface IGestionaConsulta {
     //Permite registrar una consulta para un paciente.
-    void registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes) throws IOException;
+   public void registrarConsulta(Scanner sc, Medico medico, String pathArchivoPacientes) throws IOException;
     //Muestra el historial de consultas de un paciente.
-    void verHistorialConsultas(Scanner sc);    
+   public void verHistorialConsultas(Scanner sc);    
 }

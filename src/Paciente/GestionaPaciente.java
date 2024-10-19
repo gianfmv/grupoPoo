@@ -5,9 +5,7 @@
 package Paciente;
 
 import Utils.PersisteUsuario;
-//import HistoriaClinica.HistoriaClinica;
 import Interfaces_HClinica.IHistoriaClinica;
-//import Usuario.Usuario;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import utp.edu.pe.poo.pantalla.LecturaInformacion;
@@ -117,7 +115,7 @@ public class GestionaPaciente {
             }
         }
     }
-        // metodo estático para verificar el inicio de sesión del paciente, validamos el dni y la contraseña
+        // metodo para verificar el inicio de sesión del paciente, validamos el dni y la contraseña
        public Paciente login(String dni, String password) {         //List<Paciente> listaPacientes
          for (Paciente paciente : pacientes) {
              if (paciente.verificarPassword(dni, password)) {                             

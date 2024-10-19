@@ -19,7 +19,7 @@ public abstract class Usuario {
     private String apellido;
     private String dni;
     private String password;
-    private IEncriptador encriptador;
+    private IEncriptador encriptador;// modo base64
     
     public Usuario(String nombre, String apellido, String dni, String password) {
         this.nombre = nombre;

@@ -1,0 +1,42 @@
+@startuml
+abstract class Interfaces_HClinica.Usuario
+annotation java.lang.Override
+class Encriptar.EncriptadorBase64
+class Encriptar.IEncriptador
+class Interfaces_HClinica.GestionaConsulta
+class Interfaces_HClinica.HistoriaClinica
+class Medico.Medico
+class Paciente.GestionaPaciente
+class Paciente.Paciente
+class java.io.IOException
+class java.time.LocalDate
+class java.time.format.DateTimeFormatter
+class java.util.List
+class java.util.Scanner
+class utp.edu.pe.poo.pantalla.LecturaInformacion
+interface Interfaces_HClinica.IGestionaConsulta
+interface Interfaces_HClinica.IHistoriaClinica
+interface Interfaces_HClinica.IHistoriaClinicaManager
+Interfaces_HClinica.Usuario ..> Encriptar.EncriptadorBase64
+Interfaces_HClinica.Usuario ..> Encriptar.IEncriptador
+Interfaces_HClinica.GestionaConsulta ..> java.lang.Override
+Interfaces_HClinica.GestionaConsulta ..> Medico.Medico
+Interfaces_HClinica.GestionaConsulta ..> Paciente.GestionaPaciente
+Interfaces_HClinica.GestionaConsulta ..> Paciente.Paciente
+Interfaces_HClinica.GestionaConsulta ..> java.io.IOException
+Interfaces_HClinica.GestionaConsulta ..> java.time.LocalDate
+Interfaces_HClinica.GestionaConsulta ..> java.util.List
+Interfaces_HClinica.GestionaConsulta ..> java.util.Scanner
+Interfaces_HClinica.GestionaConsulta ..> utp.edu.pe.poo.pantalla.LecturaInformacion
+Interfaces_HClinica.GestionaConsulta --|> Interfaces_HClinica.IGestionaConsulta
+Interfaces_HClinica.HistoriaClinica ..> java.lang.Override
+Interfaces_HClinica.HistoriaClinica ..> Medico.Medico
+Interfaces_HClinica.HistoriaClinica ..> Paciente.Paciente
+Interfaces_HClinica.HistoriaClinica ..> java.time.LocalDate
+Interfaces_HClinica.HistoriaClinica ..> java.time.format.DateTimeFormatter
+Interfaces_HClinica.HistoriaClinica --|> Interfaces_HClinica.IHistoriaClinica
+Interfaces_HClinica.IGestionaConsulta ..> Medico.Medico
+Interfaces_HClinica.IGestionaConsulta ..> java.io.IOException
+Interfaces_HClinica.IGestionaConsulta ..> java.util.Scanner
+Interfaces_HClinica.IHistoriaClinicaManager ..> java.util.List
+@enduml
